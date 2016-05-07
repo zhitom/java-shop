@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-7 20:32:10 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="ShopSaleDef" table="shop_sale_def" catalog="test">
+        <composite-id name="id" class="ShopSaleDefId">
+            <key-property name="ShopId" type="integer">
+                <column name="shop_id" />
+            </key-property>
+            <key-property name="ShopSaleId" type="integer">
+                <column name="shop_sale_id" />
+            </key-property>
+            <key-property name="BeginTime" type="timestamp">
+                <column name="begin_time" length="19" />
+            </key-property>
+        </composite-id>
+        <property name="maxMoney" type="int">
+            <column name="max_money" not-null="true" />
+        </property>
+        <property name="userLimitMoney" type="int">
+            <column name="user_limit_money" not-null="true" />
+        </property>
+        <property name="saleMode" type="int">
+            <column name="sale_mode" not-null="true" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="end_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

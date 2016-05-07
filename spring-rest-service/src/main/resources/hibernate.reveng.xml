@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name=".*"></table-filter>
+    <table catalog="test" name="shop_sale_result"
+		class="ShopSaleResult">
+		<primary-key>
+			<key-column name="shop_id" jdbc-type="INTEGER"
+				property="ShopId" type="integer" />
+			<key-column name="shop_sale_id" jdbc-type="INTEGER"
+				property="ShopSaleId" type="integer" />
+		</primary-key>
+	</table>
+	<table catalog="test" name="shop_sale_def" class="ShopSaleDef">
+		<primary-key>
+			<key-column name="shop_id" jdbc-type="INTEGER"
+				property="ShopId" type="integer" />
+			<key-column name="shop_sale_id" jdbc-type="INTEGER"
+				property="ShopSaleId" type="integer" />
+			<key-column name="begin_time" jdbc-type="TIMESTAMP"
+				property="BeginTime" type="timestamp" />
+		</primary-key>
+	</table>
+	<table catalog="test" name="shop_sale_result_detail" class="ShopSaleResultDetail">
+		<primary-key>
+			<key-column name="user_id" jdbc-type="INTEGER"
+				property="UserId" type="integer" />
+			<key-column name="shop_id" jdbc-type="INTEGER"
+				property="ShopId" type="integer" />
+			<key-column name="shop_sale_id" jdbc-type="INTEGER"
+				property="ShopSaleId" type="integer" />
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>
