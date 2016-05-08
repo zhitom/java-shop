@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping >
+ <class entity-name="testdb.ShopSaleResultDetail" name="testdb.ShopSaleResultDetail"
+  schema="test" table="shop_sale_result_detail">
+  <composite-id class="testdb.ShopSaleResultDetailId" mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="UserId" type="integer">
+    <column name="user_id"/>
+   </key-property>
+   <key-property name="ShopId" type="integer">
+    <column name="shop_id"/>
+   </key-property>
+   <key-property name="ShopSaleId" type="integer">
+    <column name="shop_sale_id"/>
+   </key-property>
+   <key-property name="ShopSaleInstId" type="integer">
+    <column name="shop_sale_inst_id"/>
+   </key-property>
+  </composite-id>
+  <property generated="never" lazy="false" name="presentMoney" type="integer">
+   <column name="present_money" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="presentTime" type="timestamp">
+   <column length="19" name="present_time" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="applyTime" type="timestamp">
+   <column length="19" name="apply_time" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

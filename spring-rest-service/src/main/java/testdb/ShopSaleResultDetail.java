@@ -18,6 +18,7 @@ public class ShopSaleResultDetail implements java.io.Serializable {
 	private Date applyTime;
 
 	public ShopSaleResultDetail() {
+		applyTime=new Date();
 	}
 
 	public ShopSaleResultDetail(ShopSaleResultDetailId id, Integer presentMoney, Date presentTime, Date applyTime) {
@@ -58,5 +59,17 @@ public class ShopSaleResultDetail implements java.io.Serializable {
 	public void setApplyTime(Date applyTime) {
 		this.applyTime = applyTime;
 	}
-
+	
+	public long getSpentMSeconds(){
+		if(presentTime==null)
+			presentTime=new Date();
+		return presentTime.getTime() - applyTime.getTime();
+	}
+	@Override
+	public String toString(){
+		return new StringBuffer().append("{id="+id.toString()+"},")
+				.append("{presentMoney="+presentMoney.toString()+"},")
+				.append("{applyTime="+applyTime.toString()+"},")
+				.append("{presentTime="+presentTime.toString()+"},").toString();
+	}
 }

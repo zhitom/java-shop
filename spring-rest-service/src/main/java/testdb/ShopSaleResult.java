@@ -11,18 +11,20 @@ public class ShopSaleResult implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2971754944587527539L;
+	private static final long serialVersionUID = -8484558265852566773L;
 	private ShopSaleResultId id;
 	private Integer maxMoney;
+	private Integer userLimitMoney;//可以限制红包大小,暂不实现
 	private Integer usedMoney;
 	private Date updateTime;
 
 	public ShopSaleResult() {
 	}
 
-	public ShopSaleResult(ShopSaleResultId id, Integer maxMoney, Integer usedMoney, Date updateTime) {
+	public ShopSaleResult(ShopSaleResultId id, Integer maxMoney,Integer userLimitMoney, Integer usedMoney, Date updateTime) {
 		this.id = id;
 		this.maxMoney = maxMoney;
+		this.userLimitMoney = userLimitMoney;
 		this.usedMoney = usedMoney;
 		this.updateTime = updateTime;
 	}
@@ -59,4 +61,57 @@ public class ShopSaleResult implements java.io.Serializable {
 		this.updateTime = updateTime;
 	}
 
+	public void convert(ShopSaleDef shopSaleDef) {
+		id=new ShopSaleResultId();
+		id.setShopId(shopSaleDef.getId().getShopId());
+		id.setShopSaleId(shopSaleDef.getId().getShopSaleId());
+		id.setShopSaleInstId(shopSaleDef.getId().getShopSaleInstId());
+		setMaxMoney(shopSaleDef.getMaxMoney());
+		setUserLimitMoney(shopSaleDef.getUserLimitMoney());
+		setUpdateTime(new Date());
+		setUsedMoney(0);
+		
+	}
+	@Override
+	public String toString(){
+		return new StringBuffer().append("{id="+id.toString()+"},")
+				.append("{maxMoney="+maxMoney.toString()+"},")
+				.append("{userLimitMoney="+userLimitMoney.toString()+"},")
+				.append("{usedMoney="+usedMoney.toString()+"},")
+				.append("{updateTime="+updateTime.toString()+"},").toString();
+	}
+	public int getPresentMoney(){
+		double remain=(double)(maxMoney-usedMoney);
+		if(userLimitMoney>0){
+			//取最小值作为红包金额
+			if((int)remain>userLimitMoney.intValue())
+				remain=userLimitMoney.intValue();
+		}
+		//如果小于1元,就直接返回
+		if(remain<=1)
+			return (int)remain;
+		return (int)getRandom((double)0,remain);
+	}
+	private double getRandom(double iStart,double iEnd){
+		 
+        double start = 0;
+        double end = 0;
+        if(iStart > iEnd){
+            start = iEnd;
+            end = iStart;
+        } else {
+            start = iStart;
+            end = iEnd;
+        }
+ 
+        return (double)(start + Math.random()*((end - start + 1)));
+    }
+
+	public Integer getUserLimitMoney() {
+		return userLimitMoney;
+	}
+
+	public void setUserLimitMoney(Integer userLimitMoney) {
+		this.userLimitMoney = userLimitMoney;
+	}  
 }

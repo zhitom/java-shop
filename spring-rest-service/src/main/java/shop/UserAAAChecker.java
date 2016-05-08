@@ -1,6 +1,6 @@
 package shop;
 
-//暂不实现
+//鉴权认证,暂不实现
 public class UserAAAChecker {
 	public boolean check(Integer userId){
 		if(userId!=0){

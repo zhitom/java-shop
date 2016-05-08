@@ -1,24 +1,16 @@
 package shop;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class ShopMoneyCache {
 	private Integer ShopId;
 	private Integer ShopSaleId;
+	private Integer ShopSaleInstId;
 	private Integer UsedMoney;
 	private Integer MaxMoney;
 	private Date 	UpdateTime;
 	
-	private static class LazySingleton {    
-	       private static final ShopMoneyCache INSTANCE = new ShopMoneyCache();    
-	    }    
-	
-    private ShopMoneyCache (){}    
-    public static final ShopMoneyCache getInstance() {    
-       return LazySingleton.INSTANCE;    
-    }    
-    
-    public Integer getShopId() {
+	public Integer getShopId() {
 		return this.ShopId;
 	}
 
@@ -56,6 +48,18 @@ public class ShopMoneyCache {
 
 	public void setUpdateTime(Date UpdateTime) {
 		this.UpdateTime = UpdateTime;
+	}
+
+	public long getSecondsByNow(){
+		return (new Date().getTime() - UpdateTime.getTime())/1000;
+	}
+
+	public Integer getShopSaleInstId() {
+		return ShopSaleInstId;
+	}
+
+	public void setShopSaleInstId(Integer shopSaleInstId) {
+		ShopSaleInstId = shopSaleInstId;
 	}
 
 }

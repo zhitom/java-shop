@@ -73,5 +73,10 @@ public class ShopSaleDefId implements java.io.Serializable {
 		result = 37 * result + (getShopSaleInstId() == null ? 0 : this.getShopSaleInstId().hashCode());
 		return result;
 	}
-
+	@Override
+	public String toString(){
+		return new StringBuffer().append("{ShopId="+ShopId.toString()+"},")
+				.append("{ShopSaleId="+ShopSaleId.toString()+"},")
+				.append("{ShopSaleInstId="+ShopSaleInstId.toString()+"},").toString();
+	}
 }

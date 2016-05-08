@@ -79,5 +79,13 @@ public class ShopSaleDef implements java.io.Serializable {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-
+	@Override
+	public String toString(){
+		return new StringBuffer().append("{id="+id.toString()+"},")
+				.append("{maxMoney="+maxMoney.toString()+"},")
+				.append("{userLimitMoney="+userLimitMoney.toString()+"},")
+				.append("{saleMode="+saleMode.toString()+"},")
+				.append("{beginTime="+beginTime.toString()+"},")
+				.append("{endTime="+endTime.toString()+"},").toString();
+	}
 }

@@ -6,6 +6,7 @@ package testdb;
  */
 public class ShopSaleResultDetailId implements java.io.Serializable {
 
+	
 	/**
 	 * 
 	 */
@@ -86,5 +87,11 @@ public class ShopSaleResultDetailId implements java.io.Serializable {
 		result = 37 * result + (getShopSaleInstId() == null ? 0 : this.getShopSaleInstId().hashCode());
 		return result;
 	}
-
+	@Override
+	public String toString(){
+		return new StringBuffer().append("{UserId="+UserId.toString()+"},")
+				.append("{ShopId="+ShopId.toString()+"},")
+				.append("{ShopSaleId="+ShopSaleId.toString()+"},")
+				.append("{ShopSaleInstId="+ShopSaleInstId.toString()+"},").toString();
+	}
 }

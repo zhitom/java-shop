@@ -3,8 +3,7 @@
  */
 package shop;
 
-import java.sql.Date;
-
+import java.util.Date;
 
 /**
  * @author Shandy
@@ -12,22 +11,18 @@ import java.sql.Date;
  */
 public class RequestCache {
 	private Integer UserId;
-	private Integer PresentMoney;
-	private Date 	PresentTime;
-	private Integer ApplyCount;
 	private Integer ShopId;
 	private Integer ShopSaleId;
+	private Integer ShopSaleInstId;
+	private Integer PresentMoney;
+	private Date 	PresentTime;//仅第一次记录
+	private Integer ApplyCount;
 	
-	private static class LazySingleton {    
-	       private static final RequestCache INSTANCE = new RequestCache();    
-	    }    
+	public RequestCache(){
+		ApplyCount=new Integer(1);
+	}
 	
-    private RequestCache (){}    
-    public static final RequestCache getInstance() {    
-       return LazySingleton.INSTANCE;    
-    }    
-    
-    public Integer getUserId() {
+	public Integer getUserId() {
 		return this.UserId;
 	}
 
@@ -75,4 +70,15 @@ public class RequestCache {
 		this.ShopSaleId = ShopSaleId;
 	}
 	
+	public long getSecondsByNow(){
+		return (new Date().getTime() - PresentTime.getTime())/1000;
+	}
+
+	public Integer getShopSaleInstId() {
+		return ShopSaleInstId;
+	}
+
+	public void setShopSaleInstId(Integer shopSaleInstId) {
+		ShopSaleInstId = shopSaleInstId;
+	}
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping >
+ <class entity-name="testdb.ShopSaleResult" name="testdb.ShopSaleResult" schema="test" table="shop_sale_result">
+  <composite-id class="testdb.ShopSaleResultId" mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="ShopId" type="integer">
+    <column name="shop_id"/>
+   </key-property>
+   <key-property name="ShopSaleId" type="integer">
+    <column name="shop_sale_id"/>
+   </key-property>
+   <key-property name="ShopSaleInstId" type="integer">
+    <column name="shop_sale_inst_id"/>
+   </key-property>
+  </composite-id>
+  <property generated="never" lazy="false" name="maxMoney" type="integer">
+   <column name="max_money" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userLimitMoney" type="integer">
+   <column name="user_limit_money" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="usedMoney" type="integer">
+   <column name="used_money" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="updateTime" type="timestamp">
+   <column length="19" name="update_time" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>
