@@ -1,5 +1,5 @@
 // default package
-// Generated 2016-5-7 20:32:10 by Hibernate Tools 4.0.0.Final
+// Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final
 package testdb;
 import java.util.Date;
 
@@ -11,7 +11,7 @@ public class ShopSaleResult implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7281616040579819000L;
+	private static final long serialVersionUID = 2971754944587527539L;
 	private ShopSaleResultId id;
 	private Integer maxMoney;
 	private Integer usedMoney;

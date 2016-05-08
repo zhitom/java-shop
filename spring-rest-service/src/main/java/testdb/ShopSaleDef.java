@@ -1,5 +1,5 @@
 // default package
-// Generated 2016-5-7 20:32:10 by Hibernate Tools 4.0.0.Final
+// Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final
 package testdb;
 import java.util.Date;
 
@@ -11,21 +11,24 @@ public class ShopSaleDef implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6540445837177841348L;
+	private static final long serialVersionUID = 517892570319227894L;
 	private ShopSaleDefId id;
 	private Integer maxMoney;
 	private Integer userLimitMoney;
 	private Integer saleMode;
+	private Date beginTime;
 	private Date endTime;
 
 	public ShopSaleDef() {
 	}
 
-	public ShopSaleDef(ShopSaleDefId id, Integer maxMoney, Integer userLimitMoney, Integer saleMode, Date endTime) {
+	public ShopSaleDef(ShopSaleDefId id, Integer maxMoney, Integer userLimitMoney, Integer saleMode, Date beginTime,
+			Date endTime) {
 		this.id = id;
 		this.maxMoney = maxMoney;
 		this.userLimitMoney = userLimitMoney;
 		this.saleMode = saleMode;
+		this.beginTime = beginTime;
 		this.endTime = endTime;
 	}
 
@@ -59,6 +62,14 @@ public class ShopSaleDef implements java.io.Serializable {
 
 	public void setSaleMode(Integer saleMode) {
 		this.saleMode = saleMode;
+	}
+
+	public Date getBeginTime() {
+		return this.beginTime;
+	}
+
+	public void setBeginTime(Date beginTime) {
+		this.beginTime = beginTime;
 	}
 
 	public Date getEndTime() {

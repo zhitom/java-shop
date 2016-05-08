@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-5-7 20:32:10 by Hibernate Tools 4.0.0.Final -->
+<!-- Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
-    <class name="ShopSaleResult" table="shop_sale_result" catalog="test">
+    <class name="ShopSaleResult" table="shop_sale_result" catalog="test" optimistic-lock="version">
         <composite-id name="id" class="ShopSaleResultId">
             <key-property name="ShopId" type="integer">
                 <column name="shop_id" />
@@ -11,11 +11,14 @@
             <key-property name="ShopSaleId" type="integer">
                 <column name="shop_sale_id" />
             </key-property>
+            <key-property name="ShopSaleInstId" type="integer">
+                <column name="shop_sale_inst_id" />
+            </key-property>
         </composite-id>
-        <property name="maxMoney" type="int">
+        <property name="maxMoney" type="integer">
             <column name="max_money" not-null="true" />
         </property>
-        <property name="usedMoney" type="int">
+        <property name="usedMoney" type="integer">
             <column name="used_money" not-null="true" />
         </property>
         <property name="updateTime" type="timestamp">

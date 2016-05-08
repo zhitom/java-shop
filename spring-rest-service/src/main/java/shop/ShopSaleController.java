@@ -14,8 +14,9 @@ public class ShopSaleController {
     @RequestMapping("/apply")
     public Greeting greeting(@RequestParam(value="user_id", defaultValue="0") Integer userId,
     		@RequestParam(value="shop_id", defaultValue="0") Integer shopId,
-    		@RequestParam(value="shop_sale_id", defaultValue="0") Integer shopSaleId) {
-        return new ShopSaleManager().execute(userId, shopId, shopSaleId);
+    		@RequestParam(value="shop_sale_id", defaultValue="0") Integer shopSaleId,
+    		@RequestParam(value="shop_sale_inst_id", defaultValue="0") Integer shopSaleInstId) {
+        return new ShopSaleManager().execute(userId, shopId, shopSaleId,shopSaleInstId);
     }
 }
 

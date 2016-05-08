@@ -1,5 +1,5 @@
 // default package
-// Generated 2016-5-7 20:32:11 by Hibernate Tools 4.0.0.Final
+// Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final
 package testdb;
 import java.util.List;
 import javax.naming.InitialContext;

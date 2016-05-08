@@ -2,7 +2,15 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-	<table-filter match-name=".*"></table-filter>
+<type-mapping>
+	<sql-type jdbc-type="INTEGER" hibernate-type="integer"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="TIMESTAMP" hibernate-type="timestamp"
+		length="19" not-null="true">
+	</sql-type>
+</type-mapping>
+<table-filter match-name=".*"></table-filter>
     <table catalog="test" name="shop_sale_result"
 		class="ShopSaleResult">
 		<primary-key>
@@ -10,6 +18,8 @@
 				property="ShopId" type="integer" />
 			<key-column name="shop_sale_id" jdbc-type="INTEGER"
 				property="ShopSaleId" type="integer" />
+			<key-column name="shop_sale_inst_id" jdbc-type="INTEGER"
+                property="ShopSaleInstId" type="integer" />
 		</primary-key>
 	</table>
 	<table catalog="test" name="shop_sale_def" class="ShopSaleDef">
@@ -18,8 +28,8 @@
 				property="ShopId" type="integer" />
 			<key-column name="shop_sale_id" jdbc-type="INTEGER"
 				property="ShopSaleId" type="integer" />
-			<key-column name="begin_time" jdbc-type="TIMESTAMP"
-				property="BeginTime" type="timestamp" />
+			<key-column name="shop_sale_inst_id" jdbc-type="INTEGER"
+                property="ShopSaleInstId" type="integer" />
 		</primary-key>
 	</table>
 	<table catalog="test" name="shop_sale_result_detail" class="ShopSaleResultDetail">
@@ -30,6 +40,8 @@
 				property="ShopId" type="integer" />
 			<key-column name="shop_sale_id" jdbc-type="INTEGER"
 				property="ShopSaleId" type="integer" />
+			<key-column name="shop_sale_inst_id" jdbc-type="INTEGER"
+                property="ShopSaleInstId" type="integer" />
 		</primary-key>
 	</table>
 </hibernate-reverse-engineering>

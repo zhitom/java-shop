@@ -1,5 +1,5 @@
 // default package
-// Generated 2016-5-7 20:32:11 by Hibernate Tools 4.0.0.Final
+// Generated 2016-5-8 10:48:16 by Hibernate Tools 4.3.1.Final
 package testdb;
 import java.util.List;
 import javax.naming.InitialContext;
@@ -105,7 +105,6 @@ public class ShopSaleDefHome {
 	public List findByExample(ShopSaleDef instance) {
 		log.debug("finding ShopSaleDef instance by example");
 		try {
-			
 			List results = sessionFactory.getCurrentSession().createCriteria("ShopSaleDef")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
